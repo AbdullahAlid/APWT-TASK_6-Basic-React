@@ -3,10 +3,38 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Home from './Components/Home';
+import Topnav from './Components/Topnav';
+import Footer from './Components/Footer';
+import Contact from './Components/Contact';
+import StudentList from './Components/StudentList';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Sdetails from './Components/Sdetails';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  		
+  		<Router>
+  		<Topnav />
+  			<Switch>
+  				<Route exact path="/">
+  					<Home />
+  				</Route>
+  				<Route exact path="/Contact">
+  					<Contact />
+  				</Route>
+				  <Route exact path="/Sdetails/:id/:name/:cgpa">
+  					<Sdetails />
+  				</Route>
+  				
+				<Route exact path="/StudentList">
+  					<StudentList />
+  				</Route>
+  			</Switch>
+  			<Footer />
+  		</Router>
+        
+        
   </React.StrictMode>,
   document.getElementById('root')
 );
